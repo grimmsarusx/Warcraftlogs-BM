@@ -14,7 +14,7 @@ let cronJob = cron.schedule('*/15 * * * * *', () => {
 });
 
 function update(body) {
-    if (!_.isEqual(temp, body)) {
+    if (!_.isEqual(temp, body) && !_.isEqual(_.last(temp).id, _.last(body).id)) {
         temp = body;
         request.post(discordurl).form({
             content: "Found new logs! https://www.warcraftlogs.com/reports/" + _.last(temp).id
