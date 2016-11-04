@@ -8,7 +8,7 @@ Run ```npm install``` in the folder to download all dependencies.
 You can find your WCL api key by going to your profile and scrolling down to "Web API Keys"
 Then simply replace the current url with your specific url.
 ```
-https://www.warcraftlogs.com:443/v1/reports/guild/<guild>/<realm>/<eu/us>?api_key=<key>
+https://www.warcraftlogs.com:443/v1/reports/guild/<guild>/<realm>/<eu/us>?api_key=<public api key>
 ```
 
 You get the discord url by going in to your server settings and then under webhooks you create a new entry with your own settings.
