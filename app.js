@@ -1,8 +1,8 @@
 const request = require('request');
 const cron = require('node-cron');
 const _ = require('underscore');
-const wclurl = "https://www.warcraftlogs.com:443/v1/reports/guild/<guild>/<realm>/<eu/us>?api_key=<key>";
-const discordurl = "https://discordapp.com/api/webhooks/<webhook id>/<webhook token>";
+const wclurl = "https://www.warcraftlogs.com:443/v1/reports/guild/aegis/twisting-nether/eu?api_key=9d7768d2f1106a2ad314f8edf8386cc1";
+const discordurl = "https://discordapp.com/api/webhooks/244017467419131905/HA6sXbah0JL3adHFIz9Fv2-3qCS05QyApnJFydFoLGJgIqkD6S_fqynTmb_BiG7bKc-v";
 let temp = [];
 
 let cronJob = cron.schedule('*/15 * * * * *', () => {
@@ -14,7 +14,9 @@ let cronJob = cron.schedule('*/15 * * * * *', () => {
 });
 
 function update(body) {
-    if (!_.isEqual(temp, body) && !_.isEqual(_.last(temp).id, _.last(body).id)) {
+	if (!temp.length) {
+		temp = body;
+	} else if (!_.isEqual(temp, body) && !_.isEqual(_.last(temp).id, _.last(body).id)) {
         temp = body;
         request.post(discordurl).form({
             content: "Found new logs! https://www.warcraftlogs.com/reports/" + _.last(temp).id
