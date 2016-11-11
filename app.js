@@ -1,11 +1,11 @@
 const request = require('request');
 const cron = require('node-cron');
 const _ = require('underscore');
-const wclurl = "https://www.warcraftlogs.com/v1/reports/guild/<guild name>/<realm name>/<eu/us>?api_key=APIKEY";
+const wclurl = "https://www.warcraftlogs.com/v1/reports/guild/<guild-name>/<realm-name>/<eu/us>?api_key=APIKEY";
 const discordurl = "<discord webhook url>";
 let temp = [];
 
-let cronJob = cron.schedule('*/15 * * * * *', () => {    
+let cronJob = cron.schedule('*/15 * * * * *', () => {
     request.get(wclurl, (err, response, body) => {
         if (!err && response.statusCode == 200) {
             update(JSON.parse(body));
@@ -13,19 +13,18 @@ let cronJob = cron.schedule('*/15 * * * * *', () => {
     })
 });
 
-
 function update(body) {
     var id = _.last(body).id;
-        
+
     if (JSON.stringify(temp).indexOf(id) == -1) {
         var title = _.last(body).title;
         var owner = _.last(body).owner;
         var string = "New log: " + title + " (" +  owner + ") -- https://www.warcraftlogs.com/reports/" + id;
-        
-        temp.push(id);        
+
+        temp.push(id);
         request.post(discordurl).form({
             content: string
-        });    
+        });
 
         console.log(string)
     }
@@ -33,4 +32,3 @@ function update(body) {
         console.log("Latest log has already been announced (" + id + ")", temp);
     }
 }
-
