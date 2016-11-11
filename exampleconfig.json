@@ -1,0 +1,7 @@
+{
+    "apikey": "public warcraftlogs api key",
+    "region": "US, EU, KR, TW or CN",
+    "realm": "realm-name",
+    "guild": "guild-name",
+    "discordURL": "discord webhook url"
+}

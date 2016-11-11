@@ -11,7 +11,6 @@ let cronJob = cron.schedule('*/15 * * * * *', () => {
             update(JSON.parse(body));
         }
     })
-    console.log(wclurl);
 });
 
 function update(body) {
