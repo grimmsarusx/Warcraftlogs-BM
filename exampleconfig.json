@@ -3,5 +3,6 @@
     "region": "US, EU, KR, TW or CN",
     "realm": "realm-name",
     "guild": "guild-name",
+    "seconds": 15,
     "discordURL": "discord webhook url"
 }
