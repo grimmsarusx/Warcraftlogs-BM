@@ -1,4 +1,4 @@
-# Warcraftlogs Discord Webhook
+# Warcraftlogs Discord Webhook.
 Checks warcraftlogs every 15 sec and posts on discord if new logs are found
 
 I recommend running this in something like [PM2](https://github.com/Unitech/pm2)
