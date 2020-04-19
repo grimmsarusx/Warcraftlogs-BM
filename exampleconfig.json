@@ -1,7 +1,7 @@
 {
-    "apikey": "public warcraftlogs api key",
-    "region": "US, EU, KR, TW or CN",
-    "realm": "realm-name",
-    "guild": "guild-name",
-    "discordURL": "discord webhook url"
+    "apikey": "9f0be10cd705786d6bd5de1fb460ebd0",
+    "region": "US",
+    "realm": "Skeram",
+    "guild": "Eden",
+    "discordURL": "9f0be10cd705786d6bd5de1fb460ebd0"
 }
